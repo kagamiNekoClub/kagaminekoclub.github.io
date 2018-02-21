@@ -7,6 +7,7 @@
         <b-nav-text>{{ message }}</b-nav-text>
         <b-collapse is-nav id="nav_collapse">
           <b-navbar-nav class="ml-auto">
+            <b-nav-item :href='doc' target="_blank">AIS Doc</b-nav-item>
             <b-nav-item v-on:click="sceen = 'about'" href="#">About</b-nav-item>
             <b-nav-item href="https://github.com/kagamiNekoClub" target="_blank">GitHub</b-nav-item>
           </b-navbar-nav>
@@ -16,6 +17,8 @@
     </div>
 
     <div id="body">
+      <audio :src='bgMusic' preload="auto" autoplay="autoplay" loop="true"></audio>
+
       <div v-if="sceen == 'proj'" class="proj">
         <h3 align="left">Projects</h3>
         <hr color=#987cb9 size=3>
@@ -60,12 +63,17 @@
 
 <script>
   import ais from '../assets/ais.png'
+  import bg from '../assets/bgMusic.ogg'
+  import aisDoc from '../assets/AIS-Doc-v1.5.pdf'
+
   import bCard from 'bootstrap-vue/es/components/card/card'
 
   let xmlhttp = new XMLHttpRequest()
   let data = {
     message: '',
+    bgMusic: bg,
     ais: ais,
+    doc: aisDoc,
     footer: 'Copyright © 2018 shitake',
     sceen: 'proj'
   }
@@ -79,7 +87,7 @@
   xmlhttp.send()
 
   export default {
-    name: 'main',
+    name: 'el-main',
     data: function () {
       return data
     },
