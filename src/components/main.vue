@@ -7,7 +7,6 @@
         <b-nav-text>{{ message }}</b-nav-text>
         <b-collapse is-nav id="nav_collapse">
           <b-navbar-nav class="ml-auto">
-            <b-nav-item :href='doc' target="_blank">AIS Doc</b-nav-item>
             <b-nav-item v-on:click="sceen = 'about'" href="#">About</b-nav-item>
             <b-nav-item href="https://github.com/kagamiNekoClub" target="_blank">GitHub</b-nav-item>
           </b-navbar-nav>
@@ -34,8 +33,10 @@
             <p class="card-text">
               在雾海世界中，万物万事皆由信息构成：事物的形状、颜色、气味、触感、温度、声音……
             </p>
-            <b-link href="https://github.com/kagamiNekoClub/All-In-Secret"
-                    class="card-link" target="_blank">前往</b-link>
+            <b-link :href='doc'
+                    class="card-link" target="_blank">规则书</b-link>
+            <b-link href='https://github.com/kagamiNekoClub/AllInSecretDataSchema'
+                    class="card-link" target="_blank">Data Schema</b-link>
           </b-card>
         </b-card-group>
       </div>
@@ -45,7 +46,7 @@
         <hr color=#987cb9 size=3>
         <b-container>
           <p class="about-text">
-
+            有小姐姐的地方，就有拜小姐姐的人；而拜小姐姐的多了，便有了拜小姐姐神教。
           </p>
         </b-container>
       </div>
